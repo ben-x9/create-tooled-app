@@ -1,0 +1,19 @@
+@import 'shared';
+
+.home {
+  width: 150px;
+  margin: 20px auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  font-size: 30px;
+  *, :not(:last-child) {
+    padding-right: 10px;
+  }
+  .count {
+    width: 50px;
+  }
+  .icon:hover {
+    color: #9ceaf0;
+  }
+}
