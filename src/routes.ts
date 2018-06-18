@@ -10,17 +10,17 @@ export interface Home {
 }
 export const home: Home = {type: RouteType.Home}
 
-
 export interface NotFound {
   type: RouteType.NotFound
 }
 export const notFound: NotFound = {type: RouteType.NotFound}
 
-
 export const toUri = (route: Route) => {
   switch (route.type) {
-    case RouteType.Home: return ""
-    case RouteType.NotFound: return "not-found"
+    case RouteType.Home:
+      return ""
+    case RouteType.NotFound:
+      return "not-found"
   }
 }
 

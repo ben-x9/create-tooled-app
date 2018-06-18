@@ -13,7 +13,7 @@ load<Root.State, Root.Action, Route>(
   module,
   {
     onLoad: () => {
-      (fastclick as any).attach(document.body)
+      ;(fastclick as any).attach(document.body)
     }
   }
 )

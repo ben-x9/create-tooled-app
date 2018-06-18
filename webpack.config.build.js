@@ -1,27 +1,28 @@
-const config = require("./webpack.config.dev.js");
-const path = require("path");
-const webpack = require("webpack");
-const CompressionPlugin = require("compression-webpack-plugin");
-const omit = require("lodash/omit");
+const config = require("./webpack.config.dev.js")
+const path = require("path")
+const webpack = require("webpack")
+const CompressionPlugin = require("compression-webpack-plugin")
+const omit = require("lodash/omit")
 
-module.exports = {...omit(config, "devtool"),
+module.exports = {
+  ...omit(config, "devtool"),
   entry: {
     bundle: config.entry.bundle.filter(it => it !== "react-hot-loader/patch")
   },
   output: {
     path: path.join(__dirname, "web"),
-    filename: "[name].js",
+    filename: "[name].js"
   },
   plugins: [
     ...config.plugins.slice(1),
     new webpack.EnvironmentPlugin({
-      "NODE_ENV": "production"
+      NODE_ENV: "production"
     }),
     // For react please read https://reactjs.org/docs/optimizing-performance.html#use-the-production-build
     new webpack.optimize.UglifyJsPlugin({
-      uglifyOptions:{
+      uglifyOptions: {
         output: {
-          comments: false, // remove comments
+          comments: false // remove comments
         },
         compress: {
           unused: true,
@@ -60,21 +61,28 @@ module.exports = {...omit(config, "devtool"),
       },
       {
         test: /\.scss$/,
-        use: [{
-          loader: "style-loader" // creates style nodes from JS strings
-        }, {
-          loader: "css-loader?minimize&{discardComments:{removeAll:true}}" // translates CSS into CommonJS
-        }, {
-          loader: "sass-loader" // compiles Sass to CSS
-        }]
+        use: [
+          {
+            loader: "style-loader" // creates style nodes from JS strings
+          },
+          {
+            loader: "css-loader?minimize&{discardComments:{removeAll:true}}" // translates CSS into CommonJS
+          },
+          {
+            loader: "sass-loader" // compiles Sass to CSS
+          }
+        ]
       },
       {
         test: /\.css$/,
-        use: [{
-          loader: "style-loader" // creates style nodes from JS strings
-        }, {
-          loader: "css-loader?minimize&{discardComments:{removeAll:true}}" // translates CSS into CommonJS
-        }]
+        use: [
+          {
+            loader: "style-loader" // creates style nodes from JS strings
+          },
+          {
+            loader: "css-loader?minimize&{discardComments:{removeAll:true}}" // translates CSS into CommonJS
+          }
+        ]
       },
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -86,4 +94,4 @@ module.exports = {...omit(config, "devtool"),
       }
     ]
   }
-};
+}

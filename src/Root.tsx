@@ -1,4 +1,4 @@
-import {React, AnyAction, Dispatcher} from "react-tooling"
+import {React, AnyAction, Dispatcher, isActionOf} from "react-tooling"
 import moize from "moize"
 import {Route, RouteType, home} from "routes"
 import * as initReactFastclick from "react-fastclick"
@@ -40,19 +40,12 @@ export const Decrement: Decrement = {
   type: ActionType.Decrement
 }
 
-export type Action =
-  Increment |
-  Decrement
+export type Action = Increment | Decrement
 
-export const reactsTo = (action: AnyAction): action is Action => {
-  switch (action.type) {
-    case ActionType.Increment:
-    case ActionType.Decrement:
-      return true
-    default:
-      return false
-  }
-}
+export const reactsTo = isActionOf<Action>(
+  ActionType.Increment,
+  ActionType.Decrement
+)
 
 export const update = (state: State, action: Action): State => {
   switch (action.type) {

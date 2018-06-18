@@ -15,7 +15,13 @@
     "lint": "tslint",
     "check": "tsc && tslint && npm run test",
     "deploy": "npm run build && firebase deploy",
-    "remotedev": "remotedev"
+    "remotedev": "remotedev",
+    "format": "prettier --write \"**/*.{ts*(x),js*(on),scss}\"",
+    "check:format": "prettier -l \"**/*.{ts*(x),js*(on),scss}\""
+  },
+  "prettier": {
+    "bracketSpacing": false,
+    "semi": false
   },
   "dependencies": {
     "@types/fastclick": "^1.0.28",
@@ -42,7 +48,7 @@
     "normalize.css": "^7.0.0",
     "react-fastclick": "^3.0.2",
     "react-tappable": "^1.0.2",
-    "react-tooling": "^0.9.3"
+    "react-tooling": "^0.10.10"
   },
   "devDependencies": {
     "@types/chai": "^4.1.0",
@@ -70,6 +76,7 @@
     "mocha-webpack": "^1.0.1",
     "mustache": "^2.3.0",
     "node-sass": "^4.7.2",
+    "prettier": "^1.13.5",
     "raw-loader": "^0.5.1",
     "react-tap-event-plugin": "^3.0.2",
     "readline-sync": "^1.4.7",

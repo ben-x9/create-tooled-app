@@ -1,5 +1,7 @@
-declare module 'react-fastclick' {
+declare module "react-fastclick" {
   function initReactFastclick(): void
-  namespace initReactFastclick {}
+  namespace initReactFastclick {
+
+  }
   export = initReactFastclick
 }
