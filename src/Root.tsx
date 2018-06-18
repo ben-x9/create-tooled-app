@@ -1,4 +1,4 @@
-import {React, AnyAction, Dispatcher, isActionOf} from "react-tooling"
+import {React, Dispatcher, isActionOf} from "react-tooling"
 import moize from "moize"
 import {Route, RouteType, home} from "routes"
 import * as initReactFastclick from "react-fastclick"
@@ -14,7 +14,7 @@ export interface State {
   route: Route
   count: number
 }
-export const make: State = {
+export const State: State = {
   route: home,
   count: 0
 }
