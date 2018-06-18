@@ -1,13 +1,14 @@
 {
-  "name": "english-app",
+  "name": "<insert name>",
   "version": "0.0.1",
   "main": "src/index.js",
   "description": "",
-  "repository": "github.com/ben-x9/EnglishApp",
+  "repository": "<insert repo>",
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --config webpack.config.dev.js",
-    "dev:phone": "webpack --config webpack.config.dev.phone.js --display-error-details --watch",
+    "dev:phone":
+      "webpack --config webpack.config.dev.phone.js --display-error-details --watch",
     "build": "webpack --config webpack.config.build.js",
     "test": "mocha-webpack test/**/*.ts",
     "test:watch": "npm run test -- --watch",
@@ -105,8 +106,6 @@
       "cordova-plugin-network-information": {},
       "cordova-plugin-vibration": {}
     },
-    "platforms": [
-      "browser"
-    ]
+    "platforms": ["browser"]
   }
 }
